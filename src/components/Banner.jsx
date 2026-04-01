@@ -1,35 +1,54 @@
+import heroImg from '../assets/banner.png';
+import { FiPlay } from 'react-icons/fi';
+
 export default function Banner() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
-    <section className="bg-gradient-to-r from-purple-600 to-purple-700 text-white py-12 md:py-20 px-4">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        {/* Left Content */}
-        <div className="flex flex-col gap-6">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Supercharge Your<br />Digital Workflow
+    <section className="bg-white px-4 pb-14 pt-12 md:px-8 lg:pt-20">
+      <div className="mx-auto grid w-full max-w-[1126px] grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        <div>
+          <div className="mb-6 inline-flex items-center rounded-full bg-violet-100 px-4 py-2 text-[14px] font-semibold text-violet-600">
+            New: AI-Powered Tools Available
+          </div>
+          <h1 className="max-w-[560px] text-balance text-5xl font-extrabold leading-[1.08] tracking-tight text-[#242b43] md:text-[76px]">
+            Supercharge Your Digital Workflow
           </h1>
-          <p className="text-lg text-purple-100 leading-relaxed">
-            Unlock the power of premium digital tools designed to streamline your productivity and elevate your creative process. From design to collaboration, we have everything you need.
+          <p className="mt-6 max-w-[560px] text-[16px] leading-relaxed text-slate-500 md:text-[17px]">
+            Access premium AI tools, design assets, templates, and productivity software all in one place. Start creating faster today.
           </p>
-          <div className="flex gap-4">
-            <button className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-              Get Started
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <button
+              type="button"
+              onClick={() => scrollToSection('products')}
+              className="btn h-[50px] min-h-0 rounded-full border-none bg-violet-600 px-7 text-[15px] font-bold text-white hover:bg-violet-700"
+            >
+              Explore Products
             </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition">
-              Learn More
+            <button
+              type="button"
+              onClick={() => scrollToSection('pricing')}
+              className="btn h-[50px] min-h-0 rounded-full border border-violet-300 bg-transparent px-7 text-[15px] font-bold text-violet-700 hover:bg-violet-50"
+            >
+              <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full border border-violet-400">
+                <FiPlay className="h-3 w-3" />
+              </span>
+              Watch Demo
             </button>
           </div>
         </div>
 
-        {/* Right Image */}
-        <div className="flex justify-center">
-          <div className="w-full max-w-sm bg-purple-500 rounded-lg p-6">
-            {/* Placeholder for banner image */}
-            <div className="bg-purple-400 rounded-lg aspect-square flex items-center justify-center">
-              <svg className="w-32 h-32 text-purple-300" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
-              </svg>
-            </div>
-          </div>
+        <div className="relative">
+          <img
+            src={heroImg}
+            alt="AI digital workflow"
+            className="h-[560px] w-full rounded-lg border border-[#ececf3] object-cover shadow-sm sm:h-[560px]"
+          />
         </div>
       </div>
     </section>

@@ -1,11 +1,10 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
-import Layout from './components/Layout';
 
 function App() {
   return (
-    <Layout>
+    <div className="min-h-screen bg-base-100">
       <Home />
       <ToastContainer
         position="top-right"
@@ -18,7 +17,7 @@ function App() {
         draggable
         pauseOnHover
       />
-    </Layout>
+    </div>
   );
 }
 

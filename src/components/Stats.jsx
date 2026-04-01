@@ -1,34 +1,31 @@
 export default function Stats() {
   const stats = [
     {
-      number: "500+",
-      label: "Premium Tools",
-      icon: "📦"
+      number: '50K+',
+      label: 'Active Users',
     },
     {
-      number: "200+",
-      label: "Happy Users",
-      icon: "👥"
+      number: '200+',
+      label: 'Premium Tools',
     },
     {
-      number: "4.9",
-      label: "Average Rating",
-      icon: "⭐"
-    }
+      number: '4.9',
+      label: 'Rating',
+    },
   ];
 
   return (
-    <section className="bg-purple-600 text-white py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-4xl mb-4">{stat.icon}</div>
-              <h3 className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</h3>
-              <p className="text-purple-100 text-lg">{stat.label}</p>
-            </div>
-          ))}
-        </div>
+    <section className="bg-gradient-to-r from-violet-700 via-violet-600 to-fuchsia-600 px-4 py-0 text-white md:px-8">
+      <div className="mx-auto grid w-full max-w-[1126px] grid-cols-1 overflow-hidden md:grid-cols-3">
+        {stats.map((stat, index) => (
+          <div
+            key={stat.label}
+            className={`flex min-h-[240px] flex-col items-center justify-center py-8 text-center ${index < stats.length - 1 ? 'border-b border-white/15 md:border-b-0 md:border-r md:border-white/25' : ''}`}
+          >
+            <p className="text-6xl font-extrabold tracking-tight md:text-[56px]">{stat.number}</p>
+            <p className="mt-3 text-[16px] font-semibold text-white/90 md:text-[17px]">{stat.label}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
