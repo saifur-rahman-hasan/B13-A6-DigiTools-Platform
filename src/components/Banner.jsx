@@ -25,7 +25,8 @@ export default function Banner() {
             <button
               type="button"
               onClick={() => scrollToSection('products')}
-              className="btn h-12.5 min-h-0 rounded-full border-none bg-violet-600 px-7 text-[15px] font-bold text-white hover:bg-violet-700"
+              style={{ backgroundImage: 'linear-gradient(90deg, #5c3bff 0%, #9b14ff 100%)' }}
+              className="btn h-12.5 min-h-0 rounded-full border-none px-7 text-[15px] font-bold text-white hover:brightness-105"
             >
               Explore Products
             </button>

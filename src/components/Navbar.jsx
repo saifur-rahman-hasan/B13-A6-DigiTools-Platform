@@ -48,7 +48,7 @@ export default function Navbar({ cartCount }) {
             >
               <div className="indicator">
                 <FiShoppingCart className="h-5 w-5 text-slate-700 transition-colors duration-200" />
-                {cartCount > 0 ? <span className="badge badge-sm indicator-item border-none bg-red-500 text-white">{cartCount}</span> : null}
+                {cartCount > 0 ? <span className="badge badge-sm indicator-item h-5 min-w-5 rounded-full border-none bg-red-500 px-0 text-white">{cartCount}</span> : null}
               </div>
             </button>
             <div tabIndex={0} className="card card-compact dropdown-content z-10 mt-3 w-52 bg-base-100 shadow">

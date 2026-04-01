@@ -79,7 +79,6 @@ export default function Pricing() {
                 <span className="text-[3.4rem] tracking-tight md:text-[4rem]">
                   {tier.price}
                 </span>
-                {tier.price}
                 <span className={`ml-1 pb-1 text-[1.3rem] font-medium ${tier.highlighted ? 'text-violet-100/90' : 'text-slate-400'}`}>{tier.period}</span>
               </p>
 
@@ -93,7 +92,8 @@ export default function Pricing() {
               </ul>
 
               <button
-                className={`btn mt-10 h-14 min-h-0 w-full rounded-full border-none px-5 text-[1.02rem] font-bold ${tier.highlighted ? 'bg-white text-violet-700 hover:bg-violet-50' : 'bg-linear-to-r from-violet-600 to-fuchsia-600 text-white hover:from-violet-700 hover:to-fuchsia-700'}`}
+                style={!tier.highlighted ? { backgroundImage: 'linear-gradient(90deg, #5c3bff 0%, #9b14ff 100%)' } : undefined}
+                className={`btn mt-10 h-14 min-h-0 w-full rounded-full border-none px-5 text-[1.02rem] font-bold ${tier.highlighted ? 'bg-white text-violet-700 hover:bg-violet-50' : 'text-white hover:brightness-105'}`}
               >
                 {tier.button}
               </button>

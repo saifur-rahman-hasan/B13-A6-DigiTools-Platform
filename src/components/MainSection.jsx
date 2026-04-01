@@ -40,7 +40,7 @@ export default function MainSection({ cartCount, setCartCount, cartItems, setCar
         </p>
 
         <div className="mt-8 flex justify-center">
-          <div className="inline-flex rounded-full border border-[#e4e3ef] bg-white p-1.5">
+          <div className="inline-flex gap-3 rounded-full border border-[#e4e3ef] bg-white p-1.5">
             <button
               onClick={() => setActiveTab('Products')}
               className={`btn h-11 min-h-0 rounded-full border-none px-8 text-sm font-bold ${activeTab === 'Products' ? 'bg-violet-600 text-white hover:bg-violet-700' : 'bg-transparent text-slate-600 hover:bg-[#f3f2fd]'}`}
