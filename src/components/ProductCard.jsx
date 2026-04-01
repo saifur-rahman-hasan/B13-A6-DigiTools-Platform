@@ -38,7 +38,14 @@ export default function ProductCard({ product, onAddToCart, isInCart }) {
         disabled={isInCart}
         className={`btn mt-6 h-11 min-h-0 w-full rounded-full border-none text-sm font-bold text-white ${isInCart ? 'bg-emerald-600 hover:bg-emerald-600' : 'bg-violet-600 hover:bg-violet-700'}`}
       >
-        {isInCart ? 'Added to Cart' : 'Buy Now'}
+        {isInCart ? (
+          <span className="inline-flex items-center gap-2">
+            <FiCheck className="h-4 w-4" />
+            Added to Cart
+          </span>
+        ) : (
+          'Buy Now'
+        )}
       </button>
     </article>
   );
