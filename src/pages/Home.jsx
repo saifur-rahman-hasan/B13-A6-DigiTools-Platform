@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
+import Banner from '../components/Banner';
+import Stats from '../components/Stats';
 
 export default function Home() {
   const [cartCount, setCartCount] = useState(0);
@@ -8,8 +10,8 @@ export default function Home() {
   return (
     <div className="w-full min-h-screen bg-white">
       <Navbar cartCount={cartCount} />
-      {/* Banner will go here */}
-      {/* Stats will go here */}
+      <Banner />
+      <Stats />
       {/* Main content area will go here */}
       {/* Steps section will go here */}
       {/* Pricing section will go here */}
