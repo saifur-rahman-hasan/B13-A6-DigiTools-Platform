@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Navbar from '../components/Navbar';
 
 export default function Home() {
   const [cartCount, setCartCount] = useState(0);
@@ -6,7 +7,7 @@ export default function Home() {
 
   return (
     <div className="w-full min-h-screen bg-white">
-      {/* Navbar will go here */}
+      <Navbar cartCount={cartCount} />
       {/* Banner will go here */}
       {/* Stats will go here */}
       {/* Main content area will go here */}
