@@ -1,5 +1,3 @@
-import { MdAutoFixHigh, MdBusinessCenter, MdOutlineDesignServices, MdOutlineInsertDriveFile, MdOutlinePhotoCamera, MdOutlineRocketLaunch } from 'react-icons/md';
-
 export const products = [
   {
     id: 1,
@@ -9,7 +7,7 @@ export const products = [
     period: 'Mo',
     tagType: 'Best Seller',
     features: ['Unlimited AI generations', '50+ writing templates', 'Grammar checker'],
-    icon: MdAutoFixHigh,
+    image: '/assets/products/writing-ai.png',
   },
   {
     id: 2,
@@ -19,7 +17,7 @@ export const products = [
     period: 'One-Time',
     tagType: 'Popular',
     features: ['2000+ templates', 'Monthly updates', 'Commercial license'],
-    icon: MdOutlineDesignServices,
+    image: '/assets/products/design-tool.png',
   },
   {
     id: 3,
@@ -29,7 +27,7 @@ export const products = [
     period: 'Mo',
     tagType: 'New',
     features: ['10M+ assets', 'Commercial use', 'No attribution'],
-    icon: MdOutlinePhotoCamera,
+    image: '/assets/products/shopping-cart.png',
   },
   {
     id: 4,
@@ -39,7 +37,7 @@ export const products = [
     period: 'Mo',
     tagType: 'Popular',
     features: ['50+ automations', 'API access', 'Custom workflows'],
-    icon: MdOutlineRocketLaunch,
+    image: '/assets/products/operation.png',
   },
   {
     id: 5,
@@ -49,7 +47,7 @@ export const products = [
     period: 'One-Time',
     tagType: 'New',
     features: ['100+ templates', 'ATS optimization', 'Export to PDF'],
-    icon: MdOutlineInsertDriveFile,
+    image: '/assets/products/portfolio.png',
   },
   {
     id: 6,
@@ -59,6 +57,6 @@ export const products = [
     period: 'Mo',
     tagType: 'Best Seller',
     features: ['5000+ assets', 'Scheduler included', 'Analytics dashboard'],
-    icon: MdBusinessCenter,
+    image: '/assets/products/social-media.png',
   },
 ];

@@ -44,63 +44,52 @@ export default function Cart({ cartItems, onRemoveFromCart, onCheckout }) {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4">
-      <h2 className="text-3xl font-bold text-center mb-8">Your Cart</h2>
-
-      {/* Cart Items Table */}
-      <div className="overflow-x-auto mb-6">
-        <table className="table w-full">
-          <tbody>
-            {cartItems.map((item, index) => {
-              const IconComponent = item.icon;
-              return (
-                <tr key={index} className="hover">
-                  <td className="flex gap-4 items-center">
-                    <IconComponent className="w-8 h-8 text-primary" />
-                    <div>
-                      <div className="font-bold">{item.name}</div>
-                      <div className="text-sm opacity-75">Premium Tool</div>
-                    </div>
-                  </td>
-                  <td className="text-right">
-                    <span className="text-lg font-bold text-primary">${item.price}</span>
-                  </td>
-                  <td className="text-right">
-                    <button
-                      onClick={() => handleRemove(index, item.name)}
-                      className="btn btn-ghost btn-sm text-error"
-                    >
-                      Remove
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-
-      <div className="divider"></div>
-
-      {/* Summary Section */}
-      <div className="grid grid-cols-2 gap-4 mb-8 bg-base-200 p-6 rounded-lg">
-        <div>
-          <p className="text-sm font-semibold opacity-75">Total Items</p>
-          <p className="text-3xl font-bold text-primary">{cartItems.length}</p>
+    <div className="mx-auto w-full max-w-4xl px-4">
+      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+        <div className="flex items-center justify-between gap-4">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900">Your Cart</h2>
+          <span className="rounded-full bg-violet-50 px-4 py-2 text-sm font-semibold text-violet-700">
+            {cartItems.length} item{cartItems.length === 1 ? '' : 's'}
+          </span>
         </div>
-        <div className="text-right">
-          <p className="text-sm font-semibold opacity-75">Total Price</p>
-          <p className="text-3xl font-bold text-primary">${total}</p>
-        </div>
-      </div>
 
-      {/* Checkout Button */}
-      <button
-        onClick={handleCheckout}
-        className="btn btn-primary btn-block btn-lg"
-      >
-        Proceed to Checkout
-      </button>
+        <div className="mt-8 space-y-4">
+          {cartItems.map((item, index) => (
+            <div key={`${item.id}-${index}`} className="flex flex-col gap-4 rounded-3xl bg-slate-50 px-5 py-5 md:flex-row md:items-center md:justify-between md:px-6">
+              <div className="flex items-center gap-4">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white shadow-sm ring-1 ring-slate-200">
+                  <img src={item.image} alt={item.name} className="h-11 w-11 object-contain" />
+                </div>
+                <div>
+                  <div className="text-xl font-semibold text-slate-900">{item.name}</div>
+                  <div className="mt-1 text-sm text-slate-500">${item.price}</div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => handleRemove(index, item.name)}
+                className="self-start text-base font-semibold text-pink-500 transition hover:text-pink-600 md:self-center"
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-col gap-4 border-t border-slate-200 pt-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-base text-slate-500">Total:</p>
+          </div>
+          <div className="text-3xl font-extrabold text-slate-900">${total}</div>
+        </div>
+
+        <button
+          onClick={handleCheckout}
+          className="mt-6 btn btn-block h-14 min-h-0 rounded-full border-none bg-linear-to-r from-violet-600 to-fuchsia-600 text-base font-bold text-white hover:from-violet-700 hover:to-fuchsia-700"
+        >
+          Proceed To Checkout
+        </button>
+      </div>
     </div>
   );
 }

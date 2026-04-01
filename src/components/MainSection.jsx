@@ -9,6 +9,10 @@ export default function MainSection({ cartCount, setCartCount, cartItems, setCar
   const visibleProducts = products;
 
   const handleAddToCart = (product) => {
+    if (cartItems.some((item) => item.id === product.id)) {
+      return;
+    }
+
     setCartItems((prev) => [...prev, product]);
     setCartCount((prev) => prev + 1);
     toast.success(`${product.name} added to cart`, {
@@ -54,14 +58,18 @@ export default function MainSection({ cartCount, setCartCount, cartItems, setCar
 
         {activeTab === 'Products' ? (
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {visibleProducts.map((product) => (
+            {visibleProducts.map((product) => {
+              const isInCart = cartItems.some((item) => item.id === product.id);
+
+              return (
               <ProductCard
                 key={`${product.id}-${activeTab}`}
                 product={product}
                 onAddToCart={() => handleAddToCart(product)}
-                inCartTab={false}
+                isInCart={isInCart}
               />
-            ))}
+              );
+            })}
           </div>
         ) : (
           <div className="mt-12">

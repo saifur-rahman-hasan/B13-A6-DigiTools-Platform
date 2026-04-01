@@ -1,7 +1,6 @@
 import { FiCheck } from 'react-icons/fi';
 
-export default function ProductCard({ product, onAddToCart, inCartTab }) {
-  const IconComponent = product.icon;
+export default function ProductCard({ product, onAddToCart, isInCart }) {
 
   const badgeStyles = {
     'Best Seller': 'bg-amber-100 text-amber-700',
@@ -11,9 +10,9 @@ export default function ProductCard({ product, onAddToCart, inCartTab }) {
 
   return (
     <article className="rounded-2xl border border-[#e5e3f1] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-      <div className="mb-4 flex items-start justify-between">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f4f2ff] text-violet-600">
-          <IconComponent className="h-6 w-6" />
+      <div className="mb-4 flex items-start justify-between gap-4">
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#f4f2ff]">
+          <img src={product.image} alt={product.name} className="h-full w-full object-contain p-2" />
         </div>
         <span className={`rounded-full px-3 py-1 text-xs font-bold ${badgeStyles[product.tagType]}`}>{product.tagType}</span>
       </div>
@@ -36,9 +35,10 @@ export default function ProductCard({ product, onAddToCart, inCartTab }) {
 
       <button
         onClick={onAddToCart}
-        className="btn mt-6 h-11 min-h-0 w-full rounded-full border-none bg-violet-600 text-sm font-bold text-white hover:bg-violet-700"
+        disabled={isInCart}
+        className={`btn mt-6 h-11 min-h-0 w-full rounded-full border-none text-sm font-bold text-white ${isInCart ? 'bg-emerald-600 hover:bg-emerald-600' : 'bg-violet-600 hover:bg-violet-700'}`}
       >
-        {inCartTab ? 'Buy Again' : 'Buy Now'}
+        {isInCart ? 'Added to Cart' : 'Buy Now'}
       </button>
     </article>
   );
